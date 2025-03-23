@@ -1,0 +1,48 @@
+<main>
+    <div>
+        <h1>Regístrate</h1>
+        <form id="registerForm" action="/api/sessions/register" method="post">
+            <!-- Campo: Nombre -->
+            <label for="first_name">Nombre:</label>
+            <input type="text" id="first_name" name="first_name" placeholder="Ingrese su nombre" required>
+
+            <!-- Campo: Apellido -->
+            <label for="last_name">Apellido:</label>
+            <input type="text" id="last_name" name="last_name" placeholder="Ingrese su apellido" required>
+
+            <!-- Campo: Email -->
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Ingrese su email" required>
+
+            <!-- Campo: Edad -->
+            <label for="age">Edad:</label>
+            <input type="number" id="age" name="age" placeholder="Ingrese su edad" min="1" max="120" required>
+
+            <!-- Campo: Contraseña -->
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required>
+
+            <!-- Campo: Confirmar Contraseña -->
+            <label for="confirmPassword">Confirmar Contraseña:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirme su contraseña"
+                required>
+
+            <!-- Botón de envío -->
+            <button type="submit">Registrarse</button>
+        </form>
+    </div>
+</main>
+
+<!-- Script para validar la contraseña doble -->
+<script>
+    document.getElementById("registerForm").addEventListener("submit", function (event) {
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+
+        // Validar que las contraseñas coincidan
+        if (password !== confirmPassword) {
+            alert("Las contraseñas no coinciden. Por favor, inténtelo de nuevo.");
+            event.preventDefault(); // Evitar que el formulario se envíe
+        }
+    });
+</script>
